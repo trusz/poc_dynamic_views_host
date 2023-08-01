@@ -17,10 +17,12 @@
       Grid,
       Row,
       Column,
+      HeaderActionLink,
     } from "carbon-components-svelte";
     import SettingsAdjust from "carbon-icons-svelte/lib/SettingsAdjust.svelte";
     import UserAvatarFilledAlt from "carbon-icons-svelte/lib/UserAvatarFilledAlt.svelte";
     import "carbon-components-svelte/css/g90.css";
+    import Menu from "./menu.svelte";
   
     let isSideNavOpen = false;
     let isOpen1 = false;
@@ -31,9 +33,9 @@
     <svelte:fragment slot="skip-to-content">
       <SkipToContent />
     </svelte:fragment>
-    <!-- <HeaderUtilities>
-      <HeaderGlobalAction aria-label="Settings" icon={SettingsAdjust} />
-      <HeaderAction
+    <HeaderUtilities>
+        <HeaderActionLink aria-label="Settings" icon={SettingsAdjust} href="/settings" />
+      <!-- <HeaderAction
         bind:isOpen={isOpen1}
         icon={UserAvatarFilledAlt}
         closeIcon={UserAvatarFilledAlt}
@@ -50,8 +52,8 @@
           <HeaderPanelDivider>Switcher subject 3</HeaderPanelDivider>
           <HeaderPanelLink>Switcher item 1</HeaderPanelLink>
         </HeaderPanelLinks>
-      </HeaderAction>
-      <HeaderAction bind:isOpen={isOpen2}>
+      </HeaderAction> -->
+      <!-- <HeaderAction bind:isOpen={isOpen2}>
         <HeaderPanelLinks>
           <HeaderPanelDivider>Switcher subject 1</HeaderPanelDivider>
           <HeaderPanelLink>Switcher item 1</HeaderPanelLink>
@@ -62,21 +64,12 @@
           <HeaderPanelLink>Switcher item 4</HeaderPanelLink>
           <HeaderPanelLink>Switcher item 5</HeaderPanelLink>
         </HeaderPanelLinks>
-      </HeaderAction>
-    </HeaderUtilities> -->
+      </HeaderAction> -->
+    </HeaderUtilities>
   </Header>
   
   <SideNav bind:isOpen={isSideNavOpen}>
-    <SideNavItems>
-      <SideNavLink text="Link 1" />
-      <SideNavLink text="Link 2" />
-      <SideNavLink text="Link 3" />
-      <SideNavMenu text="Menu">
-        <SideNavMenuItem href="/" text="Link 1" />
-        <SideNavMenuItem href="/" text="Link 2" />
-        <SideNavMenuItem href="/" text="Link 3" />
-      </SideNavMenu>
-    </SideNavItems>
+    <Menu />
   </SideNav>
   
   <Content>
