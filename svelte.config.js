@@ -17,7 +17,7 @@ const config = {
 			}
 		),
 		paths:{
-			base: "/poc_dynmic_views_host",
+			base: "/poc_dynamic_views_host",
 			// base: process.env.NODE_ENV === "production" ? "/poc_dynmic_views_host" : "",
 		}
 	}
