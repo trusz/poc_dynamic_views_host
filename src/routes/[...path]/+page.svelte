@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { plugin$, type Plugin } from "$lib/plugins"
+    import { EmployeeProvider } from "$lib/providers/employee-provider"
 
 
 	$: url = new URL($page.url) 
@@ -8,17 +9,30 @@
 	$: viewPath = paths[0]
 	$: plugin = $plugin$.get(viewPath)
 
+	let viewRoot: HTMLDivElement | undefined = undefined
 	$: (async function (plugin?: Plugin){
 		if(!plugin) { return }
+		if(!viewRoot) { return }
 
-		const result = await import(plugin.src)
-		console.log({level:"dev", message: "loading plugin", plugin, result})
+		viewRoot.innerHTML = ""
+		const result = await import(/* @vite-ignore */ plugin.src)
+		const initFn = result.default
+		initFn()
+		console.log({
+			level:"dev", 
+			message: "loading plugin", 
+			plugin, result, 
+			default: result.default,
+		})
 
 	})(plugin)
 
 
 </script>
 
+<EmployeeProvider />
+
+<main>
 <p>
 you are viewing:
 </p>
@@ -48,6 +62,13 @@ plugin:
 
 <hr />
 
-<div id="view-root" >
-	No View Loaded
+<h5>View's Content:</h5>
+<div id="view-root" bind:this={viewRoot}>
 </div>
+</main>
+
+<style>
+	main{
+
+	}
+</style>
