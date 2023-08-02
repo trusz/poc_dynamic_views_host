@@ -2,38 +2,39 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
+		<link rel="icon" href="/poc_dynmic_views_host/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		
-		<link rel="modulepreload" href="/_app/immutable/entry/start.261b646a.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/scheduler.37626528.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.94403697.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.4457f1a3.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.3d932874.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper.cf010ec4.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.3e0a838e.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/entry/start.0a2bf768.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/chunks/scheduler.37626528.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/chunks/singletons.fa3a3862.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/chunks/index.4457f1a3.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/entry/app.7392795a.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/chunks/preload-helper.3685c970.js">
+		<link rel="modulepreload" href="/poc_dynmic_views_host/_app/immutable/chunks/index.3e0a838e.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1gokjdc = {
-						base: "",
+					__sveltekit_1yee7yu = {
+						assets: "/poc_dynmic_views_host",
+						base: "/poc_dynmic_views_host",
 						env: {}
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.261b646a.js"),
-						import("/_app/immutable/entry/app.3d932874.js")
+						import("/poc_dynmic_views_host/_app/immutable/entry/start.0a2bf768.js"),
+						import("/poc_dynmic_views_host/_app/immutable/entry/app.7392795a.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
 
 					if ('serviceWorker' in navigator) {
 						addEventListener('load', function () {
-							navigator.serviceWorker.register('/service-worker.js');
+							navigator.serviceWorker.register('/poc_dynmic_views_host/service-worker.js');
 						});
 					}
 				}
