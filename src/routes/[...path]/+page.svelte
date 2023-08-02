@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { assets, base } from '$app/paths';
 	import { plugin$, type Plugin } from "$lib/plugins"
     import { EmployeeProvider } from "$lib/providers/employee-provider"
 
-	
+	$: console.log({level:"dev", assets, base})	
 
 	$: url = new URL($page.url) 
-	$: paths = url.pathname.split("/").filter(Boolean)
+	$: paths = url.pathname
+		.replace(base,"")
+		.split("/")
+		.filter(Boolean)
 	$: viewPath = paths[0]
 	$: plugin = $plugin$.get(viewPath)
 

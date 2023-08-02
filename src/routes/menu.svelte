@@ -1,6 +1,7 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { plugin$ } from "$lib/plugins"
-    import { SideNavItems, SideNavLink, SideNavMenu, SideNavMenuItem } from "carbon-components-svelte";
+    import { SideNavItems, SideNavLink } from "carbon-components-svelte";
 
 
 	$: console.log({level:"dev", message: "menu.svelte", $plugin$})
@@ -9,6 +10,6 @@
 
 <SideNavItems>
 	{#each $plugin$ as [_, plugin]}
-		<SideNavLink text="{plugin.name}" href="/{plugin.path}" />
+		<SideNavLink text="{plugin.name}" href="{`${base}/${plugin.path}`}" />
 	{/each}
 </SideNavItems>

@@ -13,9 +13,13 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(
 			{
-				fallback: '200.html' // may differ from host to host
+				fallback: "200.html",
 			}
-		)
+		),
+		paths:{
+			base: "/poc_dynmic_views_host",
+			// base: process.env.NODE_ENV === "production" ? "/poc_dynmic_views_host" : "",
+		}
 	}
 };
 
