@@ -1,0 +1,1 @@
+import{k as t,w as i}from"./singletons.c2b81c86.js";const n=[{name:"Employees",path:"employees",src:"https://trusz.github.io/poc_dynmic_views_employees/employees.js"},{name:"Admins",path:"admins",src:"https://trusz.github.io/poc_dynmic_views_admins/admins.js"}],e=new Map;n.forEach(s=>e.set(s.path,s));const o=e,a=i(o),m=t(a,s=>s);export{m as p};
