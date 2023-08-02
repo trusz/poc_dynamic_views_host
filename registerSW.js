@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/poc_dynmic_views_host/sw.js', { scope: '/poc_dynmic_views_host/' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/poc_dynamic_views_host/sw.js', { scope: '/poc_dynamic_views_host/' })})}
