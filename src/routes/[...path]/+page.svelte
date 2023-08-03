@@ -3,16 +3,15 @@
 	import { assets, base } from '$app/paths';
 	import { plugin$, type Plugin } from "$lib/plugins"
     import { EmployeeProvider } from "$lib/providers/employee-provider"
-
-	$: console.log({level:"dev", assets, base})	
-
+	
 	$: url = new URL($page.url) 
 	$: paths = url.pathname
 		.replace(base,"")
 		.split("/")
 		.filter(Boolean)
-	$: viewPath = paths[0]
-	$: plugin = $plugin$.get(viewPath)
+	$: viewBase = paths[0]
+	$: restRoute = paths.splice(1)
+	$: plugin = $plugin$.get(viewBase)
 
 	let viewRoot: HTMLDivElement | undefined = undefined
 	$: (async function (plugin?: Plugin){
@@ -22,13 +21,8 @@
 		viewRoot.innerHTML = ""
 		const result = await import(/* @vite-ignore */ plugin.src)
 		const initFn = result.default
-		initFn()
-		console.log({
-			level:"dev", 
-			message: "loading plugin", 
-			plugin, result, 
-			default: result.default,
-		})
+
+		initFn(base, viewBase, restRoute)
 
 	})(plugin)
 
@@ -45,8 +39,9 @@ you are viewing:
 <p>
 	<code>
 	<pre>
- url: {url}
-path: {paths}
+          url: {url}
+         view: {paths}
+ route chunks: {restRoute}
 	</pre>
 	</code>
 </p>

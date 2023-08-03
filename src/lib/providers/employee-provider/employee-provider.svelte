@@ -1,6 +1,7 @@
 <script lang="ts">
 
 	type Employee = {
+		id: number,
 		name: string
 		isAdmin: boolean
 	}
@@ -32,26 +33,32 @@
 	function addDefaultEmployees(){
 		const employees: Employee[] = [
 			{
+				id: crypto.randomUUID(),
 				name:   "Leanne Graham",
 				isAdmin:false,
 			},
 			{
+				id: crypto.randomUUID(),
 				name: "Ervin Howell",
 				isAdmin:false,
 			},
 			{
+				id: crypto.randomUUID(),
 				name: "Clementine Bauch",
 				isAdmin: false,
 			},
 			{
+				id: crypto.randomUUID(),
 				name: "Patricia Lebsack",
 				isAdmin: false,
 			},
 			{
+				id: crypto.randomUUID(),
 				name: "Chelsey Dietrich",
 				isAdmin: false,
 			},
 			{
+				id: crypto.randomUUID(),
 				name: "Mrs. Dennis Schulist",
 				isAdmin: false,
 			},

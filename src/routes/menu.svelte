@@ -10,7 +10,6 @@
 		.split("/")
 		.filter(Boolean)
 	$: viewPath = paths[0]
-	$: console.log({level:"dev", message: "menu.svelte", $plugin$})
 
 </script>
 
